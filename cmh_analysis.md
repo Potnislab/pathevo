@@ -170,4 +170,3 @@ CMH test was done for different comparisons in regard to different hosts and env
 
     for file in *.cmh; do tag=${file%.cmh}; perl ./export/cmh2gwas.pl --input $file --output $tag.gwas --min-pvalue 1.0e-20; done
 
-### Plot gwas in R
