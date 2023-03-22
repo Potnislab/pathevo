@@ -1,0 +1,129 @@
+---
+title: "Nucleotide DIversity"
+output: html_notebook
+---
+
+```{r}
+library(ggplot2)
+library(ggpval)
+library(ggpubr)
+library(tidyverse) 
+```
+```{r}
+local_micro <- read.csv("/path/to/metapop_pi_diversity_local.csv")
+theta <- read.csv("/path/to/rhometa/THETA.csv")
+#separating the theta file according to the ambient and elevated ozone conditions
+
+theta1 <- theta[theta$Environment != "Ambient", ]
+theta2 <- theta[theta$Environment != "Elevated O_3", ]
+```
+```{r}
+################### NUCLEOTIDE DIVERSITY  ################### 
+
+ ggplot(local_micro, aes(x = Cultivar, y = pi, fill=factor(Time, level=c('Mid-season','End-season')))) +   
+               #stat_boxplot(geom ='errorbar', width = 0.5)
+               geom_boxplot() + #geom_point() +
+               labs( x = "", y = "Within-host Nucleotide Diversity") +
+               #scale_fill_hue(name = "Time of Sampling") + 
+               scale_fill_manual(name = "Time of Sampling", values=c( "#4169E1", "#FFA500"))+
+               #theme_bw() + 
+               facet_wrap(~Environment) +
+               
+               #scale_x_discrete(labels=c("Ambient"="Ambient", "Elevated O3"= "Elevated O_3"))+
+               theme(axis.text = element_text(face="bold", size=12), 
+                     axis.title.y = element_text(face="bold", size=12),
+                     axis.title.x = element_text(face="bold", size=12),
+                     title =element_text(face="bold", size=12),
+                     legend.title = element_text(face="bold", size=12),
+                     legend.text=element_text(face = "bold", size=12),
+                     strip.text.x = element_text(face="bold", size=12)) +
+               #ggtitle("") +
+               theme(
+                 
+                 # Hide panel borders and remove grid lines
+                 panel.border = element_blank(),
+                 #panel.grid.major = element_blank(),
+                 #panel.grid.minor = element_blank(),
+                 # Change axis line
+                 axis.line = element_line(colour = "black"),
+                 #strip.background =element_rect(fill= "orange")
+               ) 
+ 
+ ggsave("/save/to/pi_size 12.pdf",width = 30, height = 23, units="cm", dpi=700) #save the plot
+
+```
+
+```{r}
+
+###################   MUTATION RATES      ########################
+A <-ggplot(theta2, aes(x = Cultivar, y = tps_mean_depth, fill=factor(Time, level=c('Mid-season','End-season')))) +   
+               #stat_boxplot(geom ='errorbar', width = 0.5)
+               geom_boxplot() + #geom_point() +
+               labs( x = "", y = "Mean Mutation Rate") + ylim(0, 0.0016) +
+               #scale_fill_hue(name = "Time of Sampling") + 
+               scale_fill_manual(name = "Time of Sampling", values=c( "#4169E1", "#FFA500"))+
+               #theme_bw() + 
+               facet_wrap(~Environment) +
+               
+               #scale_x_discrete(labels=c("Ambient"="Ambient", "Elevated O3"= "Elevated O_3"))+
+               theme(axis.text = element_text(face="bold", size=12), 
+                     axis.title.y = element_text(face="bold", size=12),
+                     axis.title.x = element_text(face="bold", size=12),
+                     title =element_text(face="bold", size=12),
+                     legend.title = element_text(face="bold", size=12),
+                     legend.text=element_text(face = "bold", size=12),
+                     strip.text.x = element_text(face="bold", size=12)) +
+               #ggtitle("") +
+               theme(
+                 legend.position = "none",
+                 # Hide panel borders and remove grid lines
+                 panel.border = element_blank(),
+                 #panel.grid.major = element_blank(),
+                 #panel.grid.minor = element_blank(),
+                 # Change axis line
+                 axis.line = element_line(colour = "black"),
+                 #strip.background =element_rect(fill= "orange")
+               ) 
+             
+             
+             B <- ggplot(theta1, aes(x = Cultivar, y = tps_mean_depth, fill=factor(Time, level=c('Mid-season','End-season')))) +   
+               #stat_boxplot(geom ='errorbar', width = 0.5)
+               geom_boxplot() + #geom_point() +
+               labs( x = "", y = "Mean Mutation Rate") + ylim(0, 0.0016) +
+               #scale_fill_hue(name = "Time of Sampling") + 
+               scale_fill_manual(name = "Time of Sampling", values=c( "#4169E1", "#FFA500"))+
+               #theme_bw() + 
+               facet_wrap(~Environment) +
+               #scale_x_discrete(labels=c("Ambient"="Ambient", "Elevated O3"= "Elevated O_3"))+
+               theme(axis.text = element_text(face="bold", size=12), 
+                     axis.title.y = element_text(face="bold", size=12),
+                     axis.title.x = element_text(face="bold", size=12),
+                     title =element_text(face="bold", size=12),
+                     legend.title = element_text(face="bold", size=12),
+                     legend.text=element_text(face = "bold", size=12),
+                     strip.text.x = element_text(face="bold", size=12)) +
+               #ggtitle("") +
+               theme(
+                 # Hide panel borders and remove grid lines
+                 panel.border = element_blank(),
+                 #panel.grid.major = element_blank(),
+                 #panel.grid.minor = element_blank(),
+                 # Change axis line
+                 #axis.line = element_line(colour = "black"),
+                 #strip.background =element_rect(fill= "orange")
+               ) 
+             
+             cowplot::plot_grid(A, 
+                                B + 
+                                  theme(axis.text.y = element_blank(),
+                                        axis.line.y = element_blank(),
+                                        axis.title.y= element_blank(),
+                                        axis.ticks.y= element_blank()),
+                                nrow = 1,
+                                rel_widths = c(1.5, 1.9),
+                                align = 'h', axis = 'tb')
+             
+ggarrange(A1, A2,  labels = c("A", "B"), ncol = 2, nrow = 1)
+ggsave("/Users/amanpreetkaur/Downloads/theta_size 12.pdf",width = 30, height = 23, units="cm", dpi=700)
+
+```
