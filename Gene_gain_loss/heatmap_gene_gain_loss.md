@@ -1,11 +1,16 @@
-#  libraries required
+#  libraries required and their installations
+        
+        install.packages("circlize")
         library("circlize")
+        install.packages("RColorBrewer")
         library("RColorBrewer")
-        library("RColorBrewer")
+        install.packages("dendextend")
         library(dendextend)
+        install.packages("ComplexHeatmap")
         library(ComplexHeatmap)
+        install.packages("ggplot2")
         library(ggplot2)
-        #remotes::install_github("coolbutuseless/ggpattern")
+        remotes::install_github("coolbutuseless/ggpattern")
         library(ggpattern)
 
 #  import all files
@@ -43,7 +48,7 @@
         dev.off()
 
 
-# figure for counts of gene gain/loss 
+# figure for Gene gain/loss counts
 
         colr <- c( "#00823c","#CE74A7", "steelblue", "#9e9e9e")  #selecting colours
         gain_loss %>% 
