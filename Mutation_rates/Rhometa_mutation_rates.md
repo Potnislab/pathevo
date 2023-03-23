@@ -4,25 +4,25 @@
 
     git clone https://github.com/sid-krish/rhometa.git
 
-## dependancies installation
+##    dependancies installation
 
     conda create -name Nextflow
 
     conda activate Nextflow
 
-## 1.installation using
+## 1. installation using
 
     conda install -c bioconda nextflow
     #or 
     conda install -c "bioconda/label/cf201901" nextflow 
 
 
-## 2 installed freebayes
+## 2. installed freebayes
 
     conda install -c "bioconda/label/cf201901" freebayes
 
 
-## THETA ESTIMATION: MUTATION RATES 
+## 2.  THETA ESTIMATION: MUTATION RATES 
 
         #!/bin/bash
         source /opt/asn/etc/asn-bash-profiles-special/modules.sh
@@ -36,7 +36,7 @@
         nextflow run theta_est.nf --bam "$file" --fa /path/to/reference.fasta --output_dir Theta_mutation_rates_output;
         done
 
-# lookuptables
+# 3.  lookuptables
 
         #!/bin/bash
         module load anaconda/3-2019.07
@@ -45,7 +45,7 @@
 
 
 
-# Recombination rates
+# 4.  Recombination rates
 
         #!/bin/bash
         source /opt/asn/etc/asn-bash-profiles-special/modules.sh
