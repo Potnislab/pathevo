@@ -61,9 +61,9 @@
     run_midas.py snps midas_${base}_Snp --species_id Xanthomonas_perforans_55843 -1 $fq1 -2 $fq2 -d /path/to/database/midas_db_v1.2
     done
  
-# midas_${base}_Snp: output files
-# species_id: reference id from MIDAS database
-# -d: path to reference database
+midas_${base}_Snp: output files
+species_id: reference id from MIDAS database
+-d: path to reference database
 
 
 # merging of the result output files
