@@ -33,7 +33,8 @@
         for file in /path/to/*.q20.bam;    ##making files is already mentioned in the Metapop.sh
         do tag=${file%.q20.bam};
 
-        nextflow run theta_est.nf --bam "$file" --fa /path/to/reference.fasta --output_dir Theta_mutation_rates_output;
+        nextflow run theta_est.nf --bam "$file" --fa /path/to/reference.fasta \
+        --output_dir Theta_mutation_rates_output;
         done
 
 # 3.  lookuptables
@@ -56,5 +57,6 @@
         for file in /path/to/*.q20.bam;
         do tag=${file%.q20.bam};
 
-        nextflow run rho_est.nf --bam "$file" --fa /path/to/reference.fa --lookup_tables /path/to/lookup_tables --output_dir RhoEst_nrpan_q20bam_v2_theta_0.0001; 
+        nextflow run rho_est.nf --bam "$file" --fa /path/to/reference.fa --lookup_tables /path/to/lookup_tables \
+        --output_dir RhoEst_nrpan_q20bam_v2_theta_0.0001; 
         done
