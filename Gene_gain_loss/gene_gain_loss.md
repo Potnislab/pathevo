@@ -58,7 +58,8 @@
     echo "basename is $base"
     fq1=/path/to/${base}.paired.1.fq
     fq2=/path/to/${base}.paired.2.fq
-    run_midas.py snps midas_${base}_Snp --species_id Xanthomonas_perforans_55843 -1 $fq1 -2 $fq2 -d /path/to/database/midas_db_v1.2
+    run_midas.py snps midas_${base}_Snp --species_id Xanthomonas_perforans_55843 \
+    -1 $fq1 -2 $fq2 -d /path/to/database/midas_db_v1.2
     done
  
 midas_${base}_Snp: output files
@@ -77,7 +78,9 @@ species_id: reference id from MIDAS database
       export PYTHONPATH=$PYTHONPATH:/scratch/aubaxk001/MIDAS/MIDAS/MIDAS
       export PATH=$PATH:/scratch/aubaxk001/MIDAS/MIDAS/MIDAS/scripts
       export PYTHONPATH=$PYTHONPATH:/mnt/beegfs/apps/dmc/apps/anaconda_3-2020.07/lib/python3.8/site-packages
-      merge_midas.py genes ./merge_genes --species_id Xanthomonas_perforans_55843 -i ./midas_AALE_S2,./midas_BSCE_S4,./................................./midas_BALM_S5,./midas_CGAM_S13,./midas_HGAE_S16,./midas_SALM_S11 -d /path/to/MIDAS/midas_db_v1.2 -t list
+      merge_midas.py genes ./merge_genes --species_id Xanthomonas_perforans_55843 \
+      -i ./midas_AALE_S2,./midas_BSCE_S4,./................................./midas_BALM_S5,./midas_CGAM_S13,./midas_HGAE_S16,./midas_SALM_S11 \
+      -d /path/to/MIDAS/midas_db_v1.2 -t list
 
 
 output file = ./merge_genes
