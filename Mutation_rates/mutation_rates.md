@@ -1,4 +1,4 @@
-##  MUTATION RATES      
+##  Plot for MUTATION RATES      
 
     A <- ggplot(theta2, aes(x = Cultivar, y = tps_mean_depth, fill=factor(Time, level=c('Mid-season','End-season')))) +  
     geom_boxplot() + #geom_point() +
