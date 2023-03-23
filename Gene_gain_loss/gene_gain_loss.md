@@ -1,8 +1,6 @@
-############################################################################################
-##############         Gene gain and loss : MIDAS                        ###################
-############################################################################################
+#        Gene gain and loss : MIDAS                       
 
-##to identify the genes gain and loss, we used MIDAS (https://github.com/snayfach/MIDAS)
+## to identify the genes gain and loss, we used MIDAS (https://github.com/snayfach/MIDAS)
 ## first step download of MIDAS repository using gitclone command 
 
 git clone https://github.com/snayfach/MIDAS
@@ -12,20 +10,21 @@ git clone https://github.com/snayfach/MIDAS
 cd MIDAS
 wget http://lighthouse.ucsf.edu/MIDAS/midas_db_v1.2.tar.gz 
 
-##unzip the tar.gz file
+## unzip the tar.gz file
 
 tar -zxvf midas_db_v1.2.tar.gz
 
-##install the dependancies
+## install the dependancies
 
 sudo python MIDAS/setup.py install
 
-##update environment variables using this
+## update environment variables using this
+
 export PYTHONPATH=$PYTHONPATH:/path/to/MIDAS
 export PATH=$PATH:/path/to/MIDAS/scripts
 export MIDAS_DB=/path/to/midas_database
 
-##install numpy (required dependancy): https://numpy.org/install/
+## install numpy (required dependancy): https://numpy.org/install/
 # Best practice, use an environment rather than install in the base env
 
 conda create -n my-env
@@ -72,12 +71,12 @@ run_midas.py snps midas_${base}_Snp --species_id Xanthomonas_perforans_55843 -1 
 
 done
  
-## midas_${base}_Snp: output files
-## species_id: reference id from MIDAS database
-## -d: path to reference database
+# midas_${base}_Snp: output files
+# species_id: reference id from MIDAS database
+# -d: path to reference database
 
 
-## merging of the result output files
+# merging of the result output files
 
 module load anaconda/3-2020.07
 #SBATCH --partition=general
@@ -92,10 +91,10 @@ export PYTHONPATH=$PYTHONPATH:/mnt/beegfs/apps/dmc/apps/anaconda_3-2020.07/lib/p
 merge_midas.py genes ./merge_genes --species_id Xanthomonas_perforans_55843 -i ./midas_AALE_S2,./midas_BSCE_S4,./................................./midas_BALM_S5,./midas_CGAM_S13,./midas_HGAE_S16,./midas_SALM_S11 -d /path/to/MIDAS/midas_db_v1.2 -t list
 
 
-## output file = ./merge_genes
-## -i : with path details of input files, list names of output files from last step as an input for this step
-## species_id: reference id from MIDAS database
-## -d: path to reference database
+# output file = ./merge_genes
+# -i : with path details of input files, list names of output files from last step as an input for this step
+# species_id: reference id from MIDAS database
+# -d: path to reference database
 
 
 
