@@ -1,11 +1,11 @@
 # ShortBred: Relative abundaance of type three effectors      
 using ShortBred (https://github.com/biobakery/shortbred). It needs usearch for running, which was installed on hpsc account using following commands
-
-# 1. Make a bin folder at home
+# install Userach
+1. Make a bin folder at home
       cd ~
       mkdir bin
-
-# 2. Install usearch
+      
+2. Install usearch
 
      wget https://drive5.com/downloads/usearch6.1.544_i86linux32.gz
 
@@ -58,9 +58,9 @@ the input read files came from the script mentioned in https://github.com/Potnis
 results [file name.txt] --tmp [output] 
 
 
-# Visualization: Using HClust2
+# 3. Visualization: Using HClust2
 
-# installation
+installation
 by git clone
 
       git clone https://github.com/SegataLab/hclust2
