@@ -1,0 +1,45 @@
+---
+title: "Nucleotide DIversity"
+output: html_notebook
+---
+
+```{r}
+library(ggplot2)
+library(ggpval)
+library(ggpubr)
+library(tidyverse) 
+```
+```{r}
+local_micro <- read.csv("/path/to/metapop_pi_diversity_local.csv")
+theta <- read.csv("/path/to/rhometa/THETA.csv")
+#separating the theta file according to the ambient and elevated ozone conditions
+
+theta1 <- theta[theta$Environment != "Ambient", ]
+theta2 <- theta[theta$Environment != "Elevated O_3", ]
+```
+```{r}
+################### NUCLEOTIDE DIVERSITY  ################### 
+
+ ggplot(local_micro, aes(x = Cultivar, y = pi, fill=factor(Time, level=c('Mid-season','End-season')))) +   
+  #stat_boxplot(geom ='errorbar', width = 0.5)
+  geom_boxplot() + #geom_point() +
+  labs( x = "", y = "Within-host Nucleotide Diversity") +
+  #scale_fill_hue(name = "Time of Sampling") + 
+  scale_fill_manual(name = "Time of Sampling", values=c( "#4169E1", "#FFA500")) +
+  theme_bw() + 
+  facet_wrap(~Environment) +
+  #scale_x_discrete(labels=c("Ambient"="Ambient", "Elevated O3"= "Elevated O_3"))+
+  theme(axis.text = element_text(face="bold", size=12), 
+        axis.title.y = element_text(face="bold", size=12),
+        axis.title.x = element_text(face="bold", size=12),
+        title =element_text(face="bold", size=12),
+        legend.title = element_text(face="bold", size=12),
+        legend.text=element_text(face = "bold", size=12),
+        strip.text.x = element_text(face="bold", size=12)) +
+  #ggtitle("") +
+  theme(legend.position = "bottom" ) 
+
+ggsave("/Users/amanpreetkaur/Downloads/pi.pdf",width = 7, height = 7, units="in", dpi=700)  #save the plot
+
+```
+

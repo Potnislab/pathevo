@@ -1,0 +1,78 @@
+---
+title: "pN_pS ratio and Tajima's D"
+output: html_notebook
+---
+
+
+```{r}
+File <- read.csv("/path/to/Metapop/10.Microdiversity/local_gene.csv") #read the file
+metadata <- read.csv("/path/to/metadata.csv")
+metadata$source <- factor(metadata$source) #combining the metadata with the orginal file
+local_gene2 <- merge(File, metadata, by = "source")
+
+```
+
+```{r}
+############################################################################################
+#                                   libraries                                   #
+#############################################################################################
+library(ggplot2)
+```
+
+```{r}
+
+local_gene <- local_gene2[local_gene2$pNpS_ratio != "Inf", ] #removing all the genes have pN/pS value =inf
+pNpS_taj <- subset(local_gene, pNpS_ratio > 1 & taj_D < 0, select = c(2:19))
+#write.csv(pNpS_taj, file= "local_Pn_taj.csv")
+
+```
+
+```{r}
+############################################################################################
+#                                   pN/pS ratio                                   #
+#############################################################################################
+
+A <- ggplot(selection, aes( x= gene_no.,y = pNpS_ratio, group=season)) +  
+  geom_jitter(aes(color = factor(season))) + facet_grid(cultivar ~ condition) +
+  labs( x = "", y = "pNpS") +
+  scale_color_manual(name = "Time of Sampling", values =   c( "#FFA500", "#4169E1"))+
+   theme_bw() + 
+  #scale_x_discrete(labels=c("Ambient"="Ambient", "Elevated O3"= "Elevated O_3"))+
+  theme(axis.text = element_text(face="bold", size=12), 
+        axis.title.y = element_text(face="bold", size=12),
+        axis.title.x = element_text(face="bold", size=12),
+        title =element_text(face="bold", size=12),
+        legend.title = element_text(face="bold", size=12),
+        legend.text=element_text(face = "bold", size=12),
+        strip.text.x = element_text(face="bold", size=12)) +
+  #ggtitle("") +
+  theme(
+    legend.position = "none",
+  ) 
+ ############################################################################################
+#                                   Taj_D                                   #
+#############################################################################################
+
+B <- ggplot(selection, aes( x= gene_no.,y = taj_D, group=season)) +  
+  geom_jitter(aes(color = factor(season))) + facet_grid(cultivar ~ condition) +
+  labs( x = "gene_id", y = "taj_D") +
+  scale_color_manual(name = "Time of Sampling", values =  c( "#FFA500", "#4169E1"))+
+  theme_bw() + 
+  #scale_x_discrete(labels=c("Ambient"="Ambient", "Elevated O3"= "Elevated O_3"))+
+  theme(axis.text = element_text(face="bold", size=12), 
+        axis.title.y = element_text(face="bold", size=12),
+        axis.title.x = element_text(face="bold", size=12),
+        title =element_text(face="bold", size=12),
+        legend.title = element_text(face="bold", size=12),
+        legend.text=element_text(face = "bold", size=12),
+        strip.text.x = element_text(face="bold", size=12)) +
+  #ggtitle("") +
+  theme(legend.position = "bottom"  ) 
+
+ggarrange(A, B, 
+          labels = c("A", "B"),
+          ncol = 1, nrow = 2)
+
+ggsave("/save/to/Selection.pdf",width = 6, height = 8, units="in", dpi=700) #to save the file
+
+```
