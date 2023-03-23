@@ -37,7 +37,8 @@ import or read the input files into Rstudio
         strip.text.x = element_text(face="bold", size=12)) +
        #ggtitle("") +
       theme(legend.position = "bottom" ) 
-
+      
+# save the plot 
      ggsave("/Users/amanpreetkaur/Downloads/pi.pdf",width = 7, height = 7, units="in", dpi=700)  #save the plot
 
 
