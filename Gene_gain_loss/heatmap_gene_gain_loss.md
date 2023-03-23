@@ -1,23 +1,18 @@
-```{r}
-#libraries required
+#  libraries required
+        library("circlize")
+        library("RColorBrewer")
+        library("RColorBrewer")
+        library(dendextend)
+        library(ComplexHeatmap)
+        library(ggplot2)
+        #remotes::install_github("coolbutuseless/ggpattern")
+        library(ggpattern)
 
-library("circlize")
-library("RColorBrewer")
-library("RColorBrewer")
-library(dendextend)
-library(ComplexHeatmap)
-library(ggplot2)
-#remotes::install_github("coolbutuseless/ggpattern")
-library(ggpattern)
-```
+#  import all files
+        gene_presabs <- read.csv("/path/to/gene_gain_loss.csv", row.names = "Type") #read the csv file of gene gain and loss with row_names of annotations or gene_ids
+        atdep <- read.csv("/path/to/metadata.csv", row.names = "Sample") #file containing metadata information about all samples
 
-```{r}
-#import all files
-gene_presabs <- read.csv("/path/to/gene_gain_loss.csv", row.names = "Type") #read the csv file of gene gain and loss with row_names of annotations or gene_ids
-
-atdep <- read.csv("/path/to/metadata.csv", row.names = "Sample") #file containing metadata information about all samples
-
-gain_loss <- read.csv("/path/to/gain_loss_counts.csv") #the file containing all the number of genes counts gained or lost from the samples
+        gain_loss <- read.csv("/path/to/gain_loss_counts.csv") #the file containing all the number of genes counts gained or lost from the samples
 
 ```
 
