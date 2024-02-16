@@ -1,0 +1,25 @@
+﻿Sample,Cultivar,Condition,Merger,Season ,Chamber
+1EM,Susceptible,Ambient,ECW_A,Mid,E1
+4EM,Susceptible,Ambient,ECW_A,Mid,E4
+5EM,Susceptible,Ambient,ECW_A,Mid,E5
+1EE,Susceptible,Ambient,ECW_A,End,E1
+4EE,Susceptible,Ambient,ECW_A,End,E4
+5EE,Susceptible,Ambient,ECW_A,End,E5
+1XM,Resistant,Ambient,X10R_A,Mid,X1
+4XM,Resistant,Ambient,X10R_A,Mid,X4
+5XM,Resistant,Ambient,X10R_A,Mid,X5
+1XE,Resistant,Ambient,X10R_A,End,X1
+4XE,Resistant,Ambient,X10R_A,End,X4
+5XE,Resistant,Ambient,X10R_A,End,X5
+2EM,Susceptible,Elevated,ECW_E,Mid,E2
+3EM,Susceptible,Elevated,ECW_E,Mid,E3
+6EM,Susceptible,Elevated,ECW_E,Mid,E6
+2EE,Susceptible,Elevated,ECW_E,End,E2
+3EE,Susceptible,Elevated,ECW_E,End,E3
+6EE,Susceptible,Elevated,ECW_E,End,E6
+2XM,Resistant,Elevated,X10R_E,Mid,X2
+3XM,Resistant,Elevated,X10R_E,Mid,X3
+6XM,Resistant,Elevated,X10R_E,Mid,X6
+2XE,Resistant,Elevated,X10R_E,End,X2
+3XE,Resistant,Elevated,X10R_E,End,X3
+6XE,Resistant,Elevated,X10R_E,End,X6
