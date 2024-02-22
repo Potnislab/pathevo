@@ -5,21 +5,18 @@
 
 #!/bin/bash
 module load anaconda/3-2020.07
-export PYTHONPATH=$PYTHONPATH:/scratch/aubaxk001/Midas/snps/MIDAS
-export PATH=$PATH:/scratch/aubaxk001/Midas/snps/MIDAS/scripts
-export PATH=$PATH:/scratch/aubaxk001/Midas/midas_blk_db
-export PATH=$PATH:/home/aubaxk001/.local/bin
+export PATH=$PATH:/path-to/midas_custom_db
 
-for fq1 in /scratch/aubaxk001/Midas/atdep_reads/2/*.paired.1.fq
+for fq1 in /path/to/input_fq files/*.paired.1.fq
 do
 echo "working with file $fq1"
 base=$(basename $fq1 .paired.1.fq)
 echo "base name is $base"
-fq1=/scratch/aubaxk001/Midas/atdep_reads/2/${base}.paired.1.fq
-fq2=/scratch/aubaxk001/Midas/atdep_reads/2/${base}.paired.1.fq
+fq1=/path/to/input_fq files/${base}.paired.1.fq
+fq2=/path/to/input_fq files/${base}.paired.1.fq
 
 run_midas.py snps ${base}_Snp_bk --species_id Xanthomonas_perforans \
--1 $fq1   -2 $fq2 -d /scratch/aubaxk001/Midas/midas_blk_db --remove_temp
+-1 $fq1   -2 $fq2 -d /path/to/midas_database/midas_custom_db --remove_temp
 done
 
 
