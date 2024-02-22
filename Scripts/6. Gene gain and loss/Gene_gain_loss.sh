@@ -31,8 +31,8 @@ module load anaconda/3-2020.07
 #SBATCH --cpus-per-task 16
 #SBATCH --mem-per-cpu=20000
 
-export PYTHONPATH=$PYTHONPATH:/scratch/aubaxk001/MIDAS/MIDAS/MIDAS
-export PATH=$PATH:/scratch/aubaxk001/MIDAS/MIDAS/MIDAS/scripts
+export PYTHONPATH=$PYTHONPATH:/path_to/MIDAS
+export PATH=$PATH:path_to/MIDAS/scripts
 export PYTHONPATH=$PYTHONPATH:/mnt/beegfs/apps/dmc/apps/anaconda_3-2020.07/lib/python3.8/site-packages
  
 merge_midas.py genes ./merge_genes --species_id Xanthomonas_perforans  \
