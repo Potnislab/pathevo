@@ -1,5 +1,4 @@
-# pathevo
-# Changing climate, pathogen evolution and host quantitative resistance
+# pathevo (Changing climate, pathogen evolution and host quantitative resistance)
 
 This repository provides all other data and code used in this study, including raw files for each analysis; all the bash and R script under Scripts to run individual analyses and then to construct figure presented for the following manuscript.
 
