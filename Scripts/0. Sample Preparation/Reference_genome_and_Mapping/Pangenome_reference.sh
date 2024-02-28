@@ -57,7 +57,5 @@ Superpang.sh:
 #!/bin/bash
 SuperPang.py --fasta AL65.fna AL22.fna --checkm checkm_output.txt --output-dir output_withcheckm --force-overwrite --verbose-mOTUpan -t 10
 
-#Note: When using Xeu_refseq as input (91 assemblies), a large memory was required otherwise the job would be killed. For instance, 40gb memory works for these large data.
-
 #Note: if you have more genomes, the command might get killed. Therefore, it is good to add a file containing the names of the input genomes with paths in single line
 
