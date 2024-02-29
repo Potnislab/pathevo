@@ -69,7 +69,7 @@ module load anaconda/3-2020.07
 export PYTHONPATH=$PYTHONPATH:/path/to/MIDAS
 export PATH=$PATH:/path/to/MIDAS/scripts
 export PYTHONPATH=$PYTHONPATH:/mnt/beegfs/apps/dmc/apps/anaconda_3-2020.07/lib/python3.8/site-packages
-merge_midas.py species ./Merge_species --species_id Xanthomonas_perforans -i {add,all,the,output,files,names,with,commas,without,space} -t list -d midas_db_v1.2
+merge_midas.py species ./Merge_species -i {add,all,the,output,files,names,with,commas,without,space} -t list -d midas_db_v1.2
 
 
 ######################### 
