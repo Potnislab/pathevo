@@ -57,6 +57,20 @@ fq2=/path_to_input_sample_files/${base}.paired.2.fq
 run_midas.py species midas_${base} -1 $fq1 -2 $fq2 -d /path_to_MIDAS_reference_genome/midas_db_v1.2
 done
 
+# now merge all  the samples together
+
+#!/bin/bash
+module load anaconda/3-2020.07
+#SBATCH --partition=general
+#SBATCH --job-name=my_conda_job
+#SBATCH --cpus-per-task 16
+#SBATCH --mem-per-cpu=20000
+
+export PYTHONPATH=$PYTHONPATH:/path/to/MIDAS
+export PATH=$PATH:/path/to/MIDAS/scripts
+export PYTHONPATH=$PYTHONPATH:/mnt/beegfs/apps/dmc/apps/anaconda_3-2020.07/lib/python3.8/site-packages
+merge_midas.py species ./Merge_species --species_id Xanthomonas_perforans -i {add,all,the,output,files,names,with,commas,without,space} -t list -d midas_db_v1.2
+
 
 ######################### 
 # Then we looked into the output, we took the species prevalence with than zero mean abundance from previous step output file.
