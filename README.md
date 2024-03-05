@@ -20,7 +20,7 @@ Amanpreet Kaur<sup>1</sup>, Ivory Russell<sup>1</sup>, Ranlin Liu<sup>1</sup>, A
 
 ## Data Availability
 
-Sequence data generated from this work have been deposited in the SRA (Sequencing Read Achieve) database under the BioProject accession PRJNA889178. Xp strain AL22 has been submitted under BioProject accession PRJNA1077988 and BioSample SAMN39987238. *Xp* AL65 used from submission under BioProject accession PRJNA953417.  
+Sequence data generated from this work have been deposited in the SRA (Sequencing Read Achieve) database under the BioProject accession PRJNA889178. *Xp* strain AL22 has been submitted under BioProject accession PRJNA1077988 and BioSample SAMN39987238. *Xp* AL65 used from submission under BioProject accession PRJNA953417.  
 
 ## Funding
 
