@@ -18,6 +18,7 @@ Amanpreet Kaur<sup>1</sup>, Ivory Russell<sup>1</sup>, Ranlin Liu<sup>1</sup>, A
 * Elevated O<sub>3</sub> led to increased disease severity with higher variability on the resistant cultivar but not on the susceptible cultivar. Susceptible cultivar showed a prevalence of a single pathogen genotype across environments. On the other hand, pathogen population heterogeneity observed on resistant cultivar was accompanied by de novo mutations with signatures of parallel evolution. Altered (O<sub>3</sub>) levels led to strain turnover on resistant cultivar with greater contribution of allele shifts towards within-host polymorphism. Elevated O3 supported random de novo mutations that led to higher degree of polymorphism indicative of transient mutations. 
 *	While population heterogeneity is a mechanism as response to stressors, parallel de novo mutations from a single growing season in response to quantitative resistance may provide clues to predicting long-term pathogen evolution. Presence of high proportion of transient mutations with lack of parallel mutations suggest less predictable pathogen evolution under abiotic stress.
 
+## This work is now accepted in Evolutionary Applications.
 
 ## Data Availability
 
@@ -25,4 +26,4 @@ Sequence data generated from this work have been deposited in the SRA (Sequencin
 
 ## Funding
 
-This work was supported by the Alabama Agricultural Experiment Station and the Hatch program (Project # 10108601) of the National Institute of Food and Agriculture, U.S. Department of Agriculture. 
+This work was supported by the Alabama Agricultural Experiment Station and the Hatch program (Project # 7005375) of the National Institute of Food and Agriculture, U.S. Department of Agriculture. 
