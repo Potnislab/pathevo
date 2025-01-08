@@ -2,7 +2,8 @@
 
 This repository provides all other data and code used in this study, including raw files for each analysis; all the bash and R script under Scripts to run individual analyses and then to construct figure presented for the following manuscript.
 
-### Within-host adaptation of a foliar pathogen, *Xanthomonas* on pepper in presence of quantitative resistance and ozone stress 
+### Navigating host immunity and concurrent ozone stress:  Strain-resolved metagenomics reveals maintenance of intraspecific diversity and genetic variation in Xanthomonas on pepper
+
 
 Amanpreet Kaur<sup>1</sup>, Ivory Russell<sup>1</sup>, Ranlin Liu<sup>1</sup>, Auston Holland<sup>1</sup>, Rishi Bhandari<sup>1</sup> and Neha Potnis<sup>1</sup>
 
